@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    background-color: #000;
+}
+
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+}
+nav ul li {
+    margin: 0 35px;
+}
+nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif; /* Sci-fi gaming font */
+    font-size: 20px;
+    padding: 15px 0;
+    display: block;
+    transition: font-size 0.3s ease; /* Smooth transition for font size */
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff, 0 0 80px #0ff, 0 0 90px #0ff;
+}
+nav ul li a:hover {
+    font-size: 24px; /* Increase font size on hover */
+}
+.name {
+    font-family: 'Anurati'; /* Sci-fi gaming font */
+    font-size: 44px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-top: 150px;
+    letter-spacing: 10px; /* Add letter-spacing to increase spacing between characters */
+    line-height: 1.5; /* Add line-height to increase spacing between lines */
+}
+@keyframes text-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.name h1 {
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff, 0 0 80px #0ff, 0 0 90px #0ff;
+    color: rgb(255, 252, 252);
+    opacity: 0;
+    animation: text-appear 1s ease-in-out forwards;
+    animation-delay: calc(var(--char-index) * 0.2s); /* Delay for each character */
+    display: inline-block;
+}
+.eye {
+    height: 200px;
+    width: 500px;
+    border-radius: 20px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the element */
+    display: flex; /* Use flexbox to position eyes */
+    justify-content: space-between; /* Add space between the eyes */
+    align-items: center; /* Center eyes vertically */
+}
+.eye-left, .eye-right {
+    height: 200px;
+    width: 200px;
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff, 0 0 80px #0ff; /* Neon glow effect */
+}
+.toggle-container {
+    position: fixed;
+    top: 20px;         /* Distance from top */
+    right: 40px;       /* Distance from right */
+    z-index: 1001;     /* Higher than nav if needed */
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 100px; /* Increased */
+    height: 50px; /* Increased */
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    background-color: #ccc;
+    border-radius: 50px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: background-color 0.4s;
+    box-shadow: 0 0 10px #ccc, 0 0 20px #ccc, 0 0 40px #ccc; /* Neon glow effect */
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 42px; /* Increased */
+    width: 42px;  /* Increased */
+    background-color: transparent;
+    border-radius: 50%;
+    top: 4px;
+    left: 4px;
+    transition: 0.4s;
+    z-index: 1;
+    box-shadow: 0 0 10px #ccc, 0 0 20px #ccc, 0 0 40px #ccc; /* Neon glow effect */
+}
+
+.mic-img {
+    position: absolute;
+    height: 36px; /* Increased */
+    width: 36px;  /* Increased */
+    top: 7px;
+    left: 7px;
+    pointer-events: none;
+    transition: 0.4s;
+    z-index: 2;
+}
+
+input:checked + .slider {
+    background-color: #00ffcc;
+    box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc; /* Neon glow effect */
+}
+
+input:checked + .slider::before {
+    transform: translateX(50px); /* Matches size increase */
+    box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc; /* Neon glow effect */
+}
+
+input:checked + .slider .mic-img {
+    transform: translateX(50px);
+    box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc; /* Neon glow effect */
+}
+
+#content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif; /* Sci-fi gaming font */
+    font-size: 24px;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff, 0 0 80px #0ff, 0 0 90px #0ff;
+}
+#stt{
+    /* display: none; */
+    margin-top: 20px;
+    font-size: 24px;
+    color: #00ffcc;
+    background: #222;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+/* =================================================================================================================================================================================================================*/
+
+/* Animation */
+  
+@keyframes eye-open {
+    0% { transform: scaleY(0.01); }
+    100% { transform: scaleY(1); }
+}
+
+@keyframes eye-blink {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.01); }
+}
+
+@keyframes eye-sleep {
+    0% { transform: scaleY(1); }
+    100% { transform: scaleY(0.05); }
+}
+
+.eye-open {
+    animation: eye-open 1s ease-in-out forwards;
+    transform-origin: center;
+}
+
+.eye-blink {
+    animation: eye-blink 0.5s ease-in-out forwards;
+    transform-origin: center;
+}
+
+.eye-sleep {
+    animation: eye-sleep 1s ease-in-out forwards;
+    transform-origin: center;
+}
